@@ -1,88 +1,34 @@
 {
-  "cars": [
+  "todos": [
     {
-      "id": "1",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "year": 2022,
-      "type": "Sedan",
-      "fuel": "Benzin",
-      "gear": "Otomatik",
-      "seats": 5,
-      "price_per_day": 950,
-      "currency": "TRY",
-      "available": true,
-      "location": "İstanbul",
-      "image": "https://cdn.example.com/images/toyota-corolla.jpg",
-      "features": ["Klima", "Bluetooth", "Geri Görüş Kamerası", "ABS", "Hız Sabitleyici"]
+      "id": "d9b1c9f2-3e8a-4f95-9a4b-f2b1a4d5cc2c",
+      "title": "React Projesi Yap",
+      "category": "günlük",
+      "date": 1718649600000
     },
     {
-      "id": "2",
-      "brand": "Volkswagen",
-      "model": "Golf",
-      "year": 2021,
-      "type": "Hatchback",
-      "fuel": "Dizel",
-      "gear": "Manuel",
-      "seats": 5,
-      "price_per_day": 850,
-      "currency": "TRY",
-      "available": false,
-      "location": "Ankara",
-      "image": "https://cdn.example.com/images/vw-golf.jpg",
-      "features": ["Navigasyon", "Klima", "Bluetooth", "Yokuş Kalkış Desteği"]
+      "id": "a3f179e0-4c57-4d18-a3f1-c7ef34fa1234",
+      "title": "Sunum Hazırla",
+      "category": "önemli",
+      "date": 1718736000000
     },
     {
-      "id": "3",
-      "brand": "BMW",
-      "model": "X5",
-      "year": 2023,
-      "type": "SUV",
-      "fuel": "Benzin",
-      "gear": "Otomatik",
-      "seats": 7,
-      "price_per_day": 2200,
-      "currency": "TRY",
-      "available": true,
-      "location": "İzmir",
-      "image": "https://cdn.example.com/images/bmw-x5.jpg",
-      "features": ["Deri Koltuk", "Panoramik Cam Tavan", "Geri Görüş Kamerası", "Otomatik Park"]
-    }
-  ],
-
-  "users": [
-    {
-      "id": "u001",
-      "full_name": "Ahmet Yılmaz",
-      "email": "ahmetyilmaz@example.com",
-      "phone": "+90 532 111 22 33",
-      "license_number": "TR123456789",
-      "license_issue_date": "2015-06-20",
-      "birth_date": "1990-04-15",
-      "registered_at": "2022-01-10T09:34:21Z",
-      "is_active": true
+      "id": "9d7a22be-3c2f-4e10-844a-91cf4e19a521",
+      "title": "Mail Kontrol Et",
+      "category": "varsayılan",
+      "date": 1718822400000
     },
     {
-      "id": "u002",
-      "full_name": "Zeynep Demir",
-      "email": "zeynep.demir@example.com",
-      "phone": "+90 505 444 55 66",
-      "license_number": "TR987654321",
-      "license_issue_date": "2018-03-12",
-      "birth_date": "1995-09-30",
-      "registered_at": "2023-03-02T12:15:44Z",
-      "is_active": true
+      "id": "c5f6d621-8cb3-4e55-98c6-f723c8ea2c0e",
+      "title": "API Endpointlerini Güncelle",
+      "category": "iş",
+      "date": 1718908800000
     },
     {
-      "id": "u003",
-      "full_name": "Mehmet Can",
-      "email": "mehmet.can@example.com",
-      "phone": "+90 553 777 88 99",
-      "license_number": "TR456789123",
-      "license_issue_date": "2020-07-01",
-      "birth_date": "1998-12-05",
-      "registered_at": "2024-05-18T16:05:00Z",
-      "is_active": false
+      "id": "7ad0f53a-f9c1-4767-8f8d-29bdb746a8b3",
+      "title": "Code Review Yap",
+      "category": "önemli",
+      "date": 1718995200000
     }
   ]
 }

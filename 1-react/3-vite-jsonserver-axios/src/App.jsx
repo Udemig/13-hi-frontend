@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import api from "./utils/api";
+import ListItem from "./components/ListItem";
+import Form from "./components/Form";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [todos, setTodos] = useState([]);
+
+  // Component'ın ekrana basılma anında çalışır
+  useEffect(() => {
+    // API'dan todo verilerini al ve state'e aktar
+    api.get("/todos").then((res) => setTodos(res.data));
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app-container">
+      <header>
+        <h1>TODO APP</h1>
+        <p>Pratik için basit todo uygulaması</p>
+      </header>
 
-export default App
+      {/* Yeni Todo ekleme formu */}
+      <Form />
+
+      {/* Todo'ları listele */}
+      <div className="items-list">
+        {todos.map((todo) => (
+          <ListItem key={todo.id} todo={todo} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default App;
