@@ -115,3 +115,51 @@ class Counter extend React.Component {
 
 - Component'ın yaşam döngüsünü fonksiyonel component'larda takip etmemizi sağlayan react hook'u.
 - componentDidMount,componentDidUpdate,componentWillUnmount methodlarının üçününde işini yapar
+
+# Optianal Chainin (?.)
+
+- . yöntemi ile eriştiğimiz ve kullanmak istediğimiz değişkenin null/undefined olma ihitmali varsa bu yöntemi kullanabiliriz
+
+- Örn: 1
+
+```js
+// Kullanıcı verisi null değilse maple: users &&
+users && users.map((user) => <div>Merhaba</div>);
+
+// Kullanıcı verisi null değilse maple: users?.
+users?.map((user) => <div>Merhaba</div>);
+```
+
+- Örn: 2
+
+```js
+const user = {
+  name: "Ahmet",
+};
+
+user.age && user.age;
+
+user?.age;
+```
+
+# React.StrictMode:
+
+- Component'ların 2'kez render olmasına sebep olur
+- React strict mod sayesinde react component'ları daha net kontrol eder ve hata olduğu durumlarda hatanın sebebibi ve gerçekleştiği noktayı daha doğru tespit eder ve bize bildirir
+
+- StrictMode build anında kendini imha eder yani bu iki kez render olayı son kulanıcıya ulaşmaz
+
+# Return İçeriği Tek Element Olmalı
+
+- React'da return satırı içerisinde jsx döndürüyorsak sadece tek bir element döndürebiliriz.
+
+- Eğerki birden fazla element döndürme niyetimiz varsa mutlaka byunları tek bir kapsayıcı içerisine almalyız
+
+## React Fragment <></>
+
+- Boş jsx etiketidir.
+- JSX return ederken parent element amacıyla div yerine kullanırız.
+- Return sebep olduğu parent element hatasını çözer.
+- DOM'a element olarak yansımaz
+
+- <></> veya <React.Fragment> </React.Fragment> şeklinde kullanılabilir
