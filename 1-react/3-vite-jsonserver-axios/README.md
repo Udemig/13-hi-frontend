@@ -103,6 +103,20 @@ axios
   .then((res) => console.log("axios", res.data));
 ```
 
+## Parametre Gönderme
+
+- axios, fetch yönteminde farklı olarak parametreleri nesne formatında göndermemize olanak sağlar bu yöten parametrelerin dinamik olduğunda oldukça işimize yarar
+
+```js
+// 1.yol url ekliyoruz
+fetch("/todos?_sort=date&_order=desc"); //
+
+// 2.yol: nesne formatında gönderiyoruz
+const options = { params: { _sort: "date", _order: "desc" } };
+
+api.get("/todos", options);
+```
+
 # Object Destructing
 
 - Object Destructring ({})
@@ -162,5 +176,41 @@ const handleSubmit = (e) => {
 // inputu oluşturmak yeterli
 <input />;
 ```
+
+# [{}] State'de tutulan veriyü güncelleme
+
+- 2 yaygın yol mevcut:
+
+1. Map:
+
+```js
+// State'de tutulan todo state'ini maple dönüyoruz
+// Eğer dizideki eleman'ın id'si güncellenicek elemanın id'sine eşit ise yeni oluşturucağımız diziyi todo nun güncel verilerini içeren nesneyi ekliyoruz
+// Eğer dizideki eleman'In id'si güncellenicek elemanın id'sinden farklı ise o todoyu olduğu gibi yeni diziye ekliyoruz
+const updatedTodos = todos.map((todo) => (todo.id === id ? { id, ...updateData } : todo));
+
+setTodos(updatedTodos);
+```
+
+2. Splice:
+
+```js
+// splice veriyi direkt değiştirdiği için todos verisinin kopyasını al
+const temp = [...todos];
+
+// güncellenicek elemanın id'si üzerinden dizideki sırasını bul
+const index = temp.findIndex((todo) => todo.id === id);
+
+// sırasını bildiğimiz elemanı güncelle
+temp.splice(index, 1, { id, ...updateData });
+
+// state'i güncelle
+setTodos(temp);
+```
+
+# CRUD (Create Read Update Delete)
+
+- Frontende nererdeyse her uygulama bir CRUD uyuglmasıdır.
+- Sosyal Medya, E-Ticaret, Mesajlaşma
 
 # todo Interceptors

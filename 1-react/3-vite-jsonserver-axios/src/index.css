@@ -171,3 +171,93 @@ header {
     }
   }
 }
+
+/* Düzenleme Formu */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .edit-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  input,
+  select {
+    padding: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:nth-child(1) {
+      background: #27ae60;
+      color: white;
+    }
+  }
+}
+
+/* Arama Kutusu */
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+
+  input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+  }
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background: #7f8c8d;
+    color: white;
+  }
+}
+
+.no-items {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.items-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  text-align: center;
+
+  p {
+    color: #7f8c8d;
+    font-weight: bold;
+  }
+}

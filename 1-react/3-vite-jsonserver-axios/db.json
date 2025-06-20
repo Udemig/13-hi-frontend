@@ -15,8 +15,8 @@
     {
       "id": "9d7a22be-3c2f-4e10-844a-91cf4e19a521",
       "title": "Mail Kontrol Et",
-      "category": "varsayılan",
-      "date": 1718822400000
+      "category": "günlük",
+      "date": 1750363342755
     },
     {
       "id": "c5f6d621-8cb3-4e55-98c6-f723c8ea2c0e",
@@ -29,6 +29,12 @@
       "title": "Code Review Yap",
       "category": "önemli",
       "date": 1718995200000
+    },
+    {
+      "title": "Typescript Öğren",
+      "category": "iş",
+      "date": 1750363349544,
+      "id": "tv1DnPp"
     }
   ]
 }

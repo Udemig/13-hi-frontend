@@ -1,4 +1,7 @@
-const Form = () => {
+import { toast } from "react-toastify";
+import api from "../utils/api";
+
+const Form = ({ addTodo }) => {
   // Form gönderilince çalışan fonksiyon
   const handleSubmit = (e) => {
     e.preventDefault(); // sayfa yenilemesini engelle
@@ -7,10 +10,22 @@ const Form = () => {
     const newTodo = {
       title: e.target[0].value,
       category: e.target[1].value,
+      date: new Date().getTime(),
     };
 
-    //todo: yeni todo verisini kaydet
-    console.log(newTodo);
+    // title değeri geçerli mi kontrol et
+    if (!newTodo.title.trim()) return toast.warning("İçerik boş olamaz");
+
+    // yeni todo verisini kaydet
+    // api'a post isteği atarak yeni todo'yu veritabanına kaydet
+    api
+      .post("/todos", newTodo)
+      // api isteği başarılı olursa arayüze yeni todo'nun eklenmesi için state'e ekliyoruz
+      .then((res) => {
+        addTodo(res.data);
+        e.target.reset(); // formu sıfırla
+        toast.success("Yeni todo oluşturuldu"); // bildirim gönder
+      });
   };
 
   return (
