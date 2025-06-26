@@ -6,7 +6,7 @@ const Loader = () => {
     >
       <div className="text-center">
         <div className="spinner-border text-primary mb-3"></div>
-        <p className="text-muted">Kitaplar Yükleniyor...</p>
+        <p className="text-muted">Kitap verisi yükleniyor...</p>
       </div>
     </div>
   );

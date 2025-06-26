@@ -3,29 +3,43 @@ import Header from "./components/Header";
 import Category from "./pages/Category";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
+import Aside from "./components/Aside";
+import Novel from "./pages/Novel";
+import Story from "./pages/Story";
+import Layout from "./components/Layout";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// projedeki sayfaları createBrowserRouter üzerinden tanımla
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/products", element: <Products /> },
+      { path: "/detail/:book_id", element: <Detail /> },
+      {
+        path: "/category",
+        element: <Category />,
+        children: [
+          { path: "story", element: <Story /> },
+          { path: "novel", element: <Novel /> },
+        ],
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <div className="d-flex flex-column min-vh-100">
-        <Header />
-
-        <main className="flex-grow-1 p-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/category" element={<Category />} />
-            <Route path="/detail/:book_id" element={<Detail />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-    </BrowserRouter>
-  );
+  // oluşturduğumuz router'ı projeye tanıt
+  return <RouterProvider router={router} />;
 };
 
 export default App;

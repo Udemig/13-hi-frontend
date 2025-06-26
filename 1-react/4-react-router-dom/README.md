@@ -34,3 +34,37 @@
 
 - Normal Link elementi gibi yönlendirme var.
 - Link elementinden farklı olrak eğerki kullanıcnın bulunuğu sayfanın url'i NavLink component'ının `to` propu aynı ise kendine active class'ı verir
+
+### Parametre tanımlama
+
+- Route component path değerini tanımlarken eğerki parametre tanımlamak istersek `:parametre_ismi` ifadesiyle tanımlayabiliriz
+- `<Route path="/detail/:book_id" element={<Detail />} />`
+
+### useParams
+
+- urldeki parametrelere erişmeye yarar
+- `const { book_id } = useParams()`
+
+### 404 Sayfası
+
+- kullanıcı tanımladığımız sayfalardan birine gitmeye çalışırsa ona 404 sayfası ggöstermek isteriz.
+- bunu tanımlamak için bütün route'ların altına path değeri \* olan bir route tanımlanmalı
+
+### useNavigate()
+
+- fonksiyon içerisinde link elementinin görevini yaparak kullanıcyı yönlendirmemizi sağlar
+- kullanmak için öncelikle çağırıp kurulumunu yapmak gerekir
+
+### Nested Routes
+
+- Bir kapsam route içerisinde başka routelar oluşturulmasına `Nested Routes` denir. Bu özellik sayesinde sadece belirli sayfalara ortak özellikler eklenebilir
+
+### Outlet
+
+- Kapsayıcı route içerisinde alt route'un elementinin hangi konumda ekrana basılcağını belirtmemizi sağlayan component
+
+### useSearchParams
+
+- urldeki arama parametresi / query param / query-string erişmek ve güncellemek için kullanırız
+- useSearchParams fonksiyonu çağırınca bir dizi içerisinde urldeki arama parametrelini içeren bir searchParams nesnesi ve url'deki parametreleri güncellemeye yarayan setSearchParams fonksiyonu döndürür
+- `const [searchParams, setSearchParams] = useSearchParams();`
