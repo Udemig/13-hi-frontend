@@ -1,12 +1,17 @@
-# React + Vite
+# Kütüphaneler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- react
+- axios
+- tailwindcss
+- react-router-dom
 
-Currently, two official plugins are available:
+# Enviroment Variables
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ortam değişkenleri, projenizde kullanmanız gereken ama herkessle paylaşmak istemeyeciğiniz ve githuba gönderilmesini engellediğiniz değişkenlerdir.
+- (api key, veritabanı url, admin variables)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Proje içerisinde bir `.env` isimli dosya açarak
+- `VITE_DEGİSKEN_İSMİ=degisken_degeri` formatıyle env dosyasında değişkenlerinizi tutabilirsiniz.
+- proje içerisinde `import.meta.env.VITE_DEGİSKEN_İSMİ` ifadesiyle ihitiyacınız olan noktalarda bu değişkenelere erişebilirsiniz.
+- .env klasörünü .gitignore ekleyerek bu değişkenlerin githuba gönderilmesinide engelleyebilirsiniz.
+- daha sonradan projeyi githubdan çeken klişilerde .env dosyası olmayacağı çin hangi değişkenleri tanımlaması gerektiğini gösterecek bir `.env.example` dosyası işe yarar
