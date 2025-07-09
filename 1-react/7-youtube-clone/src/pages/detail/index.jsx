@@ -55,8 +55,8 @@ const Detail = () => {
         <div className="space-y-4">
           <h1 className="text-xl font-bold line-clamp-2 leading-tight">{video.title}</h1>
           <ChannelInfo video={video} />
-          <Description />
-          <Comments />
+          <Description video={video} />
+          <Comments id={id} />
         </div>
       </div>
 

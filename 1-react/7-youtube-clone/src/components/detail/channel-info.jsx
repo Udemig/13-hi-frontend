@@ -22,10 +22,10 @@ const ChannelInfo = ({ video }) => {
       </div>
 
       {/* Sağ */}
-      <div className="flex items-center bg-[#3e403f] cursor-pointer max-sm:mt-3 max-sm:w-fit rounded-full">
+      <div className="flex items-center bg-[#272727] cursor-pointer max-sm:mt-3 max-sm:w-fit rounded-full">
         <div className="flex py-1 px-3 sm:px-4 items-center gap-2 font-bold border-r border-gray-500">
           <AiFillLike />
-          <span className="text-base font-medium">{millify(video.likeCount)}</span>
+          <span className="text-sm font-medium">{millify(video.likeCount)}</span>
         </div>
         <div className="py-1 px-3 sm:px-4">
           <AiFillDislike />
