@@ -1,4 +1,5 @@
 import { SiYoutubeshorts } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const Shorts = ({ shortList }) => {
   return (
@@ -8,9 +9,9 @@ const Shorts = ({ shortList }) => {
         <h1>Shorts</h1>
       </div>
 
-      <div className="flex gap-4 pb-4 px-4 overflow-x-auto scrollbar-hide">
+      <div className="flex gap-4 pb-4 overflow-x-auto scrollbar-hide">
         {shortList.data.map((short, key) => (
-          <div key={key} className="flex-shrink-0  group">
+          <Link to={`/watch?v=${short.videoId}`} key={key} className="flex-shrink-0  group">
             <div className="relative w-48 h-80 overflow-hidden rounded-lg bg-zinc-900">
               <img
                 src={short.thumbnail[1].url}
@@ -22,7 +23,7 @@ const Shorts = ({ shortList }) => {
                 <p className="text-gray-200 text-xs">{short.viewCountText}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

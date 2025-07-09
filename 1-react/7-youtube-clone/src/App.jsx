@@ -11,7 +11,7 @@ const App = () => {
       <div className="min-h-screen">
         <Header />
 
-        <div className="flex gap-5 w-full">
+        <div className="flex w-full">
           <Sidebar />
 
           <main className="flex-1 w-full overflow-y-auto overflow-x-hidden">

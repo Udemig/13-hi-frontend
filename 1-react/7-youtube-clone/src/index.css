@@ -31,6 +31,9 @@
   .sm-hidden {
     @apply hidden sm:flex items-center justify-center;
   }
+  .page {
+    @apply h-[calc(100vh-56px)] w-full flex-1 py-6 px-4;
+  }
 }
 
 /* Scrollbar styles */

@@ -36,7 +36,7 @@ const Feed = () => {
   const videos = data.filter((item) => item.type === "video");
 
   return (
-    <div className="h-[calc(100vh-56px)] w-full flex-1">
+    <div className="page">
       {loading ? (
         <SkeletonLoader />
       ) : error ? (
