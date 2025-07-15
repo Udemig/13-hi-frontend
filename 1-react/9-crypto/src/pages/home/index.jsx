@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { coinApi } from "../../services/coinApi";
 import Error from "../../components/error/index";
 import Searchbar from "../../components/home/searchbar";
@@ -13,6 +13,7 @@ const Home = () => {
   const [coins, setCoins] = useState([]);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // api'dan coin verisini alıp state'i güncelle
   const fetchCoins = useCallback((isRefresh = false) => {
@@ -52,6 +53,20 @@ const Home = () => {
     };
   }, []);
 
+  // coin veya aratılan kelime her değiştiğinde filtrele
+  const filtredCoins = useMemo(() => {
+    if (!searchTerm.trim()) return coins;
+
+    const term = searchTerm.toLowerCase();
+
+    return coins.filter((coin) => coin.name.toLowerCase().includes(term) || coin.symbol.toLowerCase().includes(term));
+  }, [coins, searchTerm]);
+
+  // arama durumunda çalışıcak fonksiyon
+  const onSearch = useCallback((text) => {
+    setSearchTerm(text);
+  }, []);
+
   //  Hata Durumu
   if (error) return <Error message={error} refetch={fetchCoins} />;
 
@@ -65,8 +80,8 @@ const Home = () => {
         </div>
 
         {/* Arama ve Yenileme */}
-        <div className="flex items-center space-x-4">
-          <Searchbar />
+        <div className="flex items-center space-x-4 gap-5">
+          <Searchbar onSearch={onSearch} />
 
           <button
             onClick={() => fetchCoins(true)}
@@ -103,7 +118,7 @@ const Home = () => {
         <Loader />
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {coins.map((coin) => (
+          {filtredCoins.map((coin) => (
             <CoinCard key={coin.id} coin={coin} />
           ))}
         </div>

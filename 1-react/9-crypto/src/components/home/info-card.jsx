@@ -4,12 +4,13 @@ const InfoCard = ({ label, value, icon }) => {
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-gray-600 dark:text-gray-400">{label}</p>
-          <p
+          <div
             className={`${label.includes("Toplam") ? "text-2xl font-bold" : "text-lg"}  text-gray-900 dark:text-white`}
           >
             {value}
-          </p>
+          </div>
         </div>
+
         <div>{icon}</div>
       </div>
     </div>

@@ -39,5 +39,5 @@ export const formatPercentage = (percantage) => {
   const sign = percantage >= 0 ? "+" : "-";
 
   // işaretini ekle ve return et
-  return `${sign}${formatted}`;
+  return `${sign}${formatted}%`;
 };

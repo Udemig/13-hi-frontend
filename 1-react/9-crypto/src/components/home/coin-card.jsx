@@ -1,5 +1,6 @@
 import { Star, TrendingDown, TrendingUp } from "lucide-react";
 import { formatPrice, formatBigNumber, formatPercentage } from "../../utils/helpers";
+import { Link } from "react-router-dom";
 
 const CoinCard = ({ coin }) => {
   // fiyat dğeişikliği pozitif mi
@@ -31,7 +32,10 @@ const CoinCard = ({ coin }) => {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg p-6 cursor-pointer hover:scale-105 tranform transition duration-300">
+    <Link
+      to={`/coin/${coin.id}`}
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg p-6 cursor-pointer hover:scale-105 tranform transition duration-300"
+    >
       {/* Üst Kısım */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
@@ -79,7 +83,7 @@ const CoinCard = ({ coin }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
