@@ -1,6 +1,5 @@
 import { Activity, BarChart } from "lucide-react";
 import { formatBigNumber, formatPrice } from "../../utils/helpers";
-import { formatNumber } from "chart.js/helpers";
 
 const CoinStatsGrid = ({ coin }) => {
   const stats = [

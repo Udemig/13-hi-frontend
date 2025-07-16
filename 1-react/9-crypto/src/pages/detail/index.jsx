@@ -8,6 +8,7 @@ import CoinPrice from "./coin-price";
 import CoinChartSection from "./coin-chart-section";
 import CoinStatsGrid from "./coin-stats-grid";
 import CoinDescription from "./coin-description";
+import Refresh from "../home/refresh";
 
 const Detail = () => {
   const { id } = useParams();
@@ -107,6 +108,7 @@ const Detail = () => {
       />
       <CoinStatsGrid coin={coin} />
       <CoinDescription coin={coin} />
+      <Refresh show={refreshing} />
     </div>
   );
 };

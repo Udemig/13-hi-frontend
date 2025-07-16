@@ -6,6 +6,7 @@ import { RefreshCw, TrendingUp } from "lucide-react";
 import InfoCard from "../../components/home/info-card";
 import Loader from "../../components/loader/index";
 import CoinCard from "../../components/home/coin-card";
+import Refresh from "./refresh";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -80,7 +81,7 @@ const Home = () => {
         </div>
 
         {/* Arama ve Yenileme */}
-        <div className="flex items-center space-x-4 gap-5">
+        <div className="flex items-center gap-5">
           <Searchbar onSearch={onSearch} />
 
           <button
@@ -125,14 +126,7 @@ const Home = () => {
       )}
 
       {/* Yenilenme durumu */}
-      {refreshing && (
-        <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-          <div className="flex items-center space-x-2">
-            <RefreshCw className="size-4 animate-spin" />
-            <span>Güncelleniyor</span>
-          </div>
-        </div>
-      )}
+      <Refresh show={refreshing} />
     </div>
   );
 };

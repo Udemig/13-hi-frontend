@@ -1,12 +1,13 @@
 import { ArrowLeft, RefreshCcw, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CoinHeader = ({ coin, refreshing, handleRefresh }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center space-x-4">
-        <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
+        <Link to={"/"} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
           <ArrowLeft className="size-5 text-gray-600 dark:text-gray-400" />
-        </button>
+        </Link>
 
         <div className="flex items-center space-x-3">
           <img src={coin.image.small} alt={coin.name} className="size-12 rounded-full" />
