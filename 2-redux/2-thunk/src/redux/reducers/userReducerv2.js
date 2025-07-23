@@ -1,3 +1,4 @@
+// başlangıç state'i
 const initialState = {
   isLoading: true,
   error: null,
@@ -6,8 +7,14 @@ const initialState = {
 
 const userReducerv2 = (state = initialState, action) => {
   switch (action.type) {
-    case "x":
-      return state;
+    case "USERS2_LOADING":
+      return { ...state, isLoading: true };
+
+    case "USERS2_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+
+    case "USERS2_SUCCESS":
+      return { ...state, isLoading: false, error: null, users: action.payload };
 
     default:
       return state;

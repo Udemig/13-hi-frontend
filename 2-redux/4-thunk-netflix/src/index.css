@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#252525] text-[#e6e6e6] min-h-screen;
+  }
+
+  .hero-btn {
+    @apply py-2 px-4 bg-red-600 rounded transition hover:brightness-90 min-w-[165px] flex items-center justify-center gap-2;
+  }
+}

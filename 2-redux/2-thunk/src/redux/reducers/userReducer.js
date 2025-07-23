@@ -6,8 +6,14 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "x":
-      return state;
+    case "USERS_LOADING":
+      return { ...state, isLoading: true };
+
+    case "USERS_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+
+    case "USERS_SUCCESS":
+      return { ...state, isLoading: false, error: null, users: action.payload };
 
     default:
       return state;
