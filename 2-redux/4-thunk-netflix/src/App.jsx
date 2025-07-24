@@ -4,8 +4,17 @@ import Footer from "./components/footer";
 import Home from "./pages/home";
 import Movie from "./pages/movie/index";
 import WatchList from "./pages/watch-list";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getWatchList } from "./redux/actions/listActions";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getWatchList());
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="flex flex-col min-h-screen p-5 md:p-10 lg:px-15 xl:px-20">

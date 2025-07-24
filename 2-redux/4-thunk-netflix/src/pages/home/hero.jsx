@@ -4,8 +4,9 @@ import api from "../../utils/api";
 import Loader from "../../components/loader";
 import Error from "../../components/error/index";
 import { Link } from "react-router-dom";
-import { Play, Plus } from "lucide-react";
+import { Play } from "lucide-react";
 import { BASE_IMG_URL } from "../../utils/constants";
+import WatchListButton from "../../components/button/watch-list-button";
 
 const Hero = () => {
   const [movie, setMovie] = useState(null);
@@ -53,10 +54,7 @@ const Hero = () => {
             Filmi İzle
           </Link>
 
-          <Link to={`/movie/${movie.id}`} className="hero-btn bg-blue-600">
-            <Plus className="size-5" />
-            Listeye Ekle
-          </Link>
+          <WatchListButton movie={movie} />
         </div>
       </div>
 

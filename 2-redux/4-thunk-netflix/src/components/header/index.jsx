@@ -1,7 +1,9 @@
 import { Bookmark } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { list } = useSelector((store) => store.listReducer);
   return (
     <header className="mb-10 flex justify-between items-center">
       <Link to="/">
@@ -12,7 +14,7 @@ const Header = () => {
         <div className="relative">
           <Bookmark />
           <span className="absolute right-[-13px] top-[-13px] bg-red-500 size-6 grid place-items-center text-sm font-semibold rounded-full">
-            10
+            {list.length}
           </span>
         </div>
         İzleme Listesi
