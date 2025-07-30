@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./header.module.scss";
 
 const Header = () => {
-  // Todo: Aktif olanı göster
   return (
     <header className={styles.header}>
       <div>
@@ -11,8 +10,12 @@ const Header = () => {
       </div>
 
       <nav>
-        <NavLink to="/">Başvurular</NavLink>
-        <NavLink to="/create">Yeni Başvuru</NavLink>
+        <NavLink className={(e) => (e.isActive ? styles.active : "")} to="/">
+          Başvurular
+        </NavLink>
+        <NavLink className={(e) => (e.isActive ? styles.active : "")} to="/create">
+          Yeni Başvuru
+        </NavLink>
       </nav>
     </header>
   );
