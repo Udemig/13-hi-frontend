@@ -15,20 +15,25 @@ import { createSlice } from "@reduxjs/toolkit";
 const counterSlice = createSlice({
   name: "counter",
   initialState: { count: 1, theme: "dark" },
+  // aksiyonların görevlerini içeren fonksiyonlar
   reducers: {
-    increase: (state, action) => {
+    increase: (state) => {
       state.count++;
     },
 
-    decrease: (state, action) => {
+    decrease: (state) => {
       state.count--;
+    },
+
+    setCount: (state, action) => {
+      state.count = action.payload;
     },
   },
 });
 
 // component içerisinde tetikleyiceğim aksiyonları oluşturan fonksiyonlar slice tarafından otomatik olarak oluşturuldu
 // component'larda dispatch edebilmek için export edelim
-export const { increase, decrease } = counterSlice.actions;
+export const { increase, decrease, setCount } = counterSlice.actions;
 
 // store'tanıtlması gereke reducer otomatik olarak slice tarafından oluştu
 // store'a tanıtımak için export edelim

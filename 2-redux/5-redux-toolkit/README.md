@@ -21,3 +21,12 @@
 
 - klsik redux'ta aksiyonları, aksiyon tiplerini, reducer'ları ayrı dosyalarda tanımlıyorduk
 - redux toolkit içerisinde yer alan slice yapısı sayesinde tek bir noktada aksiyonları, aksiyon tiplerini, reducer'ları tanımlayabiliyoruz
+
+# Bracket Notion
+
+- Nesnenin bir alanına erişmek için iki yöntem vardır
+
+- obj.key > dot notion
+- obj["key"] > bracket notion
+
+- eğerki dinamik olarak değişen veya özel karaketare sahipt bir key değerine erişmek istersek bracket yöntemini tercih ederiz

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counterSlice";
-
+import crudReducer from "./slices/crudSlice";
 /*
  * createStore vs configureStore
  * reducer'lar otmatik birleştirirlir (combineReducers'a gerek yok)
@@ -11,6 +11,7 @@ import counterReducer from "./slices/counterSlice";
 const store = configureStore({
   reducer: {
     counterReducer,
+    crudReducer,
   },
 });
 

@@ -1,0 +1,7 @@
+.layout {
+  padding: 20px;
+
+  @media (min-width: 720px) {
+    padding: 20px 40px;
+  }
+}
