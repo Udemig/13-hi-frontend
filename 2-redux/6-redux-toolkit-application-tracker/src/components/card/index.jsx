@@ -55,7 +55,9 @@ const Card = ({ job }) => {
       ? dayjs(job.date).fromNow() + " başvuruldu"
       : job.status === "Reddedildi"
       ? dayjs(job.rejection_date).format("DD-MMMM") + " 'da reddildi"
-      : dayjs(job.rejection_date).format("DD-MMMM HH:mm") + " 'de mülakat";
+      : job.status === "Mülakat"
+      ? dayjs(job.interview_date).format("DD-MMMM HH:mm") + " 'de mülakat"
+      : dayjs(job.accept_date).format("DD-MMMM") + " 'de kabul edildi";
 
   // Sil butonuna tıklanınca
   const handleDelete = () => {
