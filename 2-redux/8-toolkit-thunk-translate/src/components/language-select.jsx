@@ -1,13 +1,32 @@
 import Select from "react-select";
 import { ArrowLeftRight } from "lucide-react";
-
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
+import { setSource, setTarget, swap } from "../redux/slices/translateSlice.js";
 
 const LanguageSelect = () => {
+  const dispatch = useDispatch();
+  const { isLoading, languages } = useSelector((store) => store.language);
+  const { sourceLang, targetLang } = useSelector((store) => store.translate);
+  /*
+   react select veriyi bu formatta istediği için:
+   languages dizisini mapleyip nesnelerin key'lerini yeniden adlandırdık
+   language > value
+   name > label
+   useMemo kullanarak her render sırasında gereksiz hesaplamanın önüne geçtik
+  */
+  const formatted = useMemo(
+    () =>
+      languages?.map((item) => ({
+        value: item.language,
+        label: item.name,
+      })),
+    [languages]
+  );
+
+  // dili algıla seçeneği
+  const detect = { value: undefined, label: "Dili algıla" };
+
   // react select stilleri
   const customStyles = {
     control: (baseStyles, state) => ({
@@ -50,18 +69,56 @@ const LanguageSelect = () => {
     }),
   };
 
+  // kaynak dil seçimi
+  const handleSource = (lang) => {
+    // seçilen dil hedef dil ile eşitse ve seçilen dilin kaynağı tanımlıysa:
+    if (lang.value === targetLang.value && sourceLang.value) {
+      return handleSwap();
+    }
+
+    // seçilen dil, hedef dilin aynısı değilse
+    if (lang.value !== targetLang.value) {
+      dispatch(setSource(lang));
+    }
+  };
+
+  // hedef dil seçimi
+  const handleTarget = (lang) => {
+    if (lang.value === sourceLang.value) {
+      return handleSwap();
+    }
+    dispatch(setTarget(lang));
+  };
+
+  // dillerin yerini değiştir
+  const handleSwap = () => {
+    dispatch(swap());
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 flex-col lg:flex-row">
         {/* Kaynak Dil */}
         <div className="flex-1 w-full">
           <label className="block text-sm text-zinc-300 mb-2">Kaynak Dil</label>
-          <Select options={options} styles={customStyles} className="text-sm text-black" />
+          <Select
+            value={sourceLang}
+            isDisabled={isLoading}
+            isLoading={isLoading}
+            options={[detect, ...formatted]}
+            styles={customStyles}
+            onChange={handleSource}
+            className="text-sm text-black"
+          />
         </div>
 
         {/* Değiştirme Butonu */}
         <div className="flex items-center justify-center">
-          <button className="size-10 lg:size-12 bg-zinc-700 hover:bg-zinc-600 disabled:bg-zinc-800 disabled:opacity-50 rounded-full flex items-center justify-center cursor-pointer group">
+          <button
+            disabled={!sourceLang.value || isLoading}
+            onClick={handleSwap}
+            className="size-10 lg:size-12 bg-zinc-700 hover:bg-zinc-600 disabled:bg-zinc-800 disabled:opacity-50 rounded-full flex items-center justify-center cursor-pointer group"
+          >
             <ArrowLeftRight />
           </button>
         </div>
@@ -69,13 +126,21 @@ const LanguageSelect = () => {
         {/* Hedef Dil */}
         <div className="flex-1 w-full">
           <label className="block text-sm text-zinc-300 mb-2">Hedef Dil</label>
-          <Select options={options} styles={customStyles} className="text-sm text-black" />
+          <Select
+            value={targetLang}
+            isDisabled={isLoading}
+            isLoading={isLoading}
+            options={formatted}
+            styles={customStyles}
+            onChange={handleTarget}
+            className="text-sm text-black"
+          />
         </div>
       </div>
 
       {/* Dil Sayısı */}
       <div className="text-center">
-        <p className="text-xs text-zinc-500">170 dil destekleniyor</p>
+        <p className="text-xs text-zinc-500">{languages?.length} dil destekleniyor</p>
       </div>
     </div>
   );
