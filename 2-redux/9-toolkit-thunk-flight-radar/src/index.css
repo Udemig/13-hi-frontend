@@ -141,8 +141,9 @@ header {
   .modal-inner {
     background: black;
     color: white;
-    width: 300px;
-    height: 90%;
+    min-width: 300px;
+    max-width: 340px;
+    height: 80%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -257,6 +258,7 @@ header {
 
       h3 {
         font-weight: 400;
+        font-size: 20px;
       }
 
       span {
@@ -346,6 +348,62 @@ header {
   width: 18px;
 }
 
+.passive {
+  display: none !important;
+}
+
+.active-flight {
+  display: block !important;
+}
+
+.airport-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  &:nth-child(1) {
+    font-weight: 700;
+  }
+
+  .positions {
+    color: #686868;
+  }
+}
+
+/* Liste Sayfası */
+.list-container {
+  flex: 1;
+  height: 100%;
+  background: #e6e5e5;
+  padding: 20px;
+  overflow-x: hidden;
+  min-height: calc(100vh - 77.2px);
+
+  table {
+    overflow: hidden;
+    border-radius: 10px;
+
+    button {
+      padding: 4px 8px;
+      font-size: 15px;
+    }
+  }
+}
+
+td {
+  white-space: nowrap;
+}
+
+.pagination {
+  margin: auto !important;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   header {
@@ -362,6 +420,10 @@ header {
 
   .leaflet-container {
     height: calc(100vh - 65.2px);
+  }
+
+  .list-container {
+    min-height: calc(100vh - 65.2px);
   }
 }
 
