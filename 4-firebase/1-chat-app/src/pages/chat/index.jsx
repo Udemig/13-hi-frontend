@@ -9,7 +9,7 @@ const Chat = () => {
 
   return (
     <div className="h-screen md:grid md:place-items-center">
-      <div className="bg-white text-grey w-full md:w-[80vw] h-screen md:h-[80vh] md:rounded-md overflow-hidden flex flex-col">
+      <div className="bg-white text-grey w-full md:w-[50vw] h-screen md:h-[80vh] md:rounded-md overflow-hidden flex flex-col">
         <Header user={user} room={room} />
 
         <List room={room} />
