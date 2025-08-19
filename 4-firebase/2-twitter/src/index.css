@@ -12,4 +12,15 @@
   .input {
     @apply bg-secondary text-black rounded mt-1 p-2 outline-none shadow-lg focus:shadow-[gray] w-full;
   }
+  .form-icon {
+    @apply hover:bg-tw-blue/20 rounded-full size-8 grid place-items-center cursor-pointer transition;
+  }
+
+  .submit-button {
+    @apply bg-secondary font-bold px-5 py-[6px] rounded-full text-primary tracking-wide hover:brightness-75 min-w-[100px] items-center transition cursor-pointer flex justify-center disabled:brightness-90 disabled:cursor-not-allowed h-[36px];
+  }
+
+  .post-icon {
+    @apply p-3 rounded-full cursor-pointer transition-transform;
+  }
 }
