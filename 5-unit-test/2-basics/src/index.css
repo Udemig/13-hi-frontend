@@ -77,3 +77,31 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
 }
+
+.accordion {
+  width: 700px;
+  margin-top: 100px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 19px;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .hide {
+    display: none;
+  }
+}
