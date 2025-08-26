@@ -1,7 +1,8 @@
-import { render } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Statistics from "../pages/home/statistics";
 // mock'lamak istediğimiz değişkeni import ederiz
 import { totalApi } from "../utils/api";
+import { mockStatisticsData } from "../utils/constants";
 
 /*
  ! Describe:
@@ -24,15 +25,47 @@ jest.mock("../utils/api", () => ({
 }));
 
 describe("statistics component testleri", () => {
+  // her testin sonunda mock'ları temizle
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("bileşen render olduğunda loader ekrana gelir", () => {
+    // sahte fonksiyon promise döndürsün
+    totalApi.get.mockReturnValue(new Promise(() => {}));
+
+    // bileşeni renderla
     render(<Statistics />);
+
+    // ekranda loader component'ı var mı kontrol et
+    screen.getByTestId("loader");
   });
 
-  test("api'dan hata gelirse ekrana hata mesajı gelir", () => {
-    console.log("🎾 test 2 yapıldı");
+  test("api'dan hata gelirse ekrana hata mesajı gelir", async () => {
+    // sahte fonksiyon hata mesajı döndürsün
+    totalApi.get.mockRejectedValue(new Error("404 istatistik alınamadı"));
+
+    // bileşeni renderla
+    render(<Statistics />);
+
+    // belirli bi sürenin ardından ekrana hata mesajı geliyo mu kontrol et
+    // waitFor: fonkda verilen olay geçekleşen kadar bir süre bekller
+    await waitFor(() => screen.getByText("Üzgünüz bir hata oluştu"));
   });
 
-  test("api'dan veri gelirse ekrana veriler gelir", () => {
-    console.log("🎾 test 3 yapıldı");
+  test("api'dan veri gelirse ekrana veriler gelir", async () => {
+    // istatistik versini döndürsün
+    totalApi.get.mockResolvedValue({ data: { data: mockStatisticsData } });
+
+    // bileşeni renderla
+    render(<Statistics />);
+
+    // api isteğinin atılmasını bekle
+    await waitFor(() => expect(totalApi.get).toHaveBeenCalled());
+
+    // ekrana veriler geldi mi
+    screen.getByText("Toplam Vaka");
+    screen.getByText("Aktif Vaka");
+    screen.getByText("Toplam Vefat");
   });
 });

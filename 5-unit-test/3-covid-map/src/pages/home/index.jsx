@@ -1,4 +1,5 @@
 import Hero from "./hero";
+import Map from "./map";
 import Statistics from "./statistics";
 
 const Home = () => {
@@ -7,6 +8,8 @@ const Home = () => {
       <Hero />
 
       <Statistics />
+
+      <Map />
     </div>
   );
 };
