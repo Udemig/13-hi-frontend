@@ -19,16 +19,16 @@ export const getDetails = createAsyncThunk("covid/getDetails", async (country) =
 
   // ihtiyacımız olan verileri al
   const payload = {
-    country: covidData.country,
-    continent: covidData.continent,
-    day: covidData.day,
-    cases: covidData.cases.total,
-    deaths: covidData.deaths.total,
-    tests: covidData.tests.total,
-    population: covidData.population,
-    flag: countryData.flags,
-    capital: countryData.capital[0],
-    currency: Object.entries(countryData.currencies)[0][1].name,
+    country: covidData?.country || "-",
+    continent: covidData?.continent,
+    day: covidData?.day || "-",
+    cases: covidData?.cases?.total || "-",
+    deaths: covidData?.deaths?.total || "-",
+    tests: covidData?.tests?.total || "-",
+    population: covidData?.population || "-",
+    flag: countryData?.flags || "-",
+    capital: countryData?.capital?.[0] || "-",
+    currency: Object.entries(countryData?.currencies || {})?.[0]?.[1]?.name || "-",
   };
 
   // aksiyonun payload'ını return et
