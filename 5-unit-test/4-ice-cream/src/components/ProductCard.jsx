@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 const ProductCard = ({ product }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const dispatch = useDispatch();
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -9,7 +12,18 @@ const ProductCard = ({ product }) => {
 
   const handleAddToCart = () => {
     if (selectedOption) {
-      console.log(`Adding ${product.name} (${selectedOption}) to cart`);
+      // Dispatch addToCart action with the required data structure
+      dispatch(
+        addToCart({
+          productId: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          format: selectedOption, // "Külah" or "Bardakta"
+        })
+      );
+
+      console.log(`Added ${product.name} (${selectedOption}) to cart`);
       // Reset selection after adding to cart
       setSelectedOption(null);
     }

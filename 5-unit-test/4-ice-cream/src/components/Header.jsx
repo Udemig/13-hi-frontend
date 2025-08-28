@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoSearchOutline, IoClose } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { GiIceCreamCone } from "react-icons/gi";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <img src="/public/images/logo.svg" alt="Drop Cream Logo" className="w-8 h-8" />
+              <GiIceCreamCone className="w-8 h-8 text-yellow-300" />
               <span className="text-xl font-bold">Drop Cream</span>
             </div>
 
@@ -72,7 +73,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <img src="/public/images/logo.svg" alt="Drop Cream Logo" className="w-6 h-6" />
+              <GiIceCreamCone className="w-6 h-6 text-yellow-300" />
               <span className="text-lg font-bold">Drop Cream</span>
             </div>
 

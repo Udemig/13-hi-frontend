@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { HiAdjustments, HiViewGrid, HiCheckCircle, HiUsers } from "react-icons/hi";
 import ProductCard from "./ProductCard";
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
@@ -59,9 +60,7 @@ const ProductList = () => {
               role="button"
               tabIndex={0}
             >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 16a1 1 0 011-1h4a1 1 0 110 2H4a1 1 0 01-1-1z" />
-              </svg>
+              <HiAdjustments className="w-6 h-6 text-white" />
             </button>
 
             <button
@@ -70,9 +69,7 @@ const ProductList = () => {
               role="button"
               tabIndex={0}
             >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
+              <HiViewGrid className="w-6 h-6 text-white" />
             </button>
 
             <button
@@ -81,9 +78,7 @@ const ProductList = () => {
               role="button"
               tabIndex={0}
             >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <HiCheckCircle className="w-6 h-6 text-white" />
             </button>
 
             <button
@@ -92,9 +87,7 @@ const ProductList = () => {
               role="button"
               tabIndex={0}
             >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-              </svg>
+              <HiUsers className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>

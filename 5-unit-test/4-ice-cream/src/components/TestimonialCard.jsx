@@ -1,3 +1,5 @@
+import { HiDotsVertical, HiStar } from "react-icons/hi";
+
 const TestimonialCard = () => {
   return (
     <div className="bg-white text-gray-800 rounded-2xl shadow-xl p-6 max-w-sm relative">
@@ -9,11 +11,7 @@ const TestimonialCard = () => {
           role="button"
           tabIndex={0}
         >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <circle cx="10" cy="4" r="2" />
-            <circle cx="10" cy="10" r="2" />
-            <circle cx="10" cy="16" r="2" />
-          </svg>
+          <HiDotsVertical className="w-5 h-5" />
         </button>
       </div>
 
@@ -27,9 +25,7 @@ const TestimonialCard = () => {
           {/* Star Rating */}
           <div className="flex space-x-1">
             {[...Array(5)].map((_, index) => (
-              <svg key={index} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-              </svg>
+              <HiStar key={index} className="w-4 h-4 text-yellow-400" />
             ))}
           </div>
         </div>

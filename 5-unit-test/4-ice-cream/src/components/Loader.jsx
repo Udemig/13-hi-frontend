@@ -1,6 +1,6 @@
 const Loader = ({ message = "Yükleniyor..." }) => {
   return (
-    <section className="bg-white py-16">
+    <section data-testid="loader" className="bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center">
           {/* Spinning loader */}
