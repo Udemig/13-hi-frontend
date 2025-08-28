@@ -18,6 +18,7 @@ const CartButton = () => {
   return (
     <div className="fixed bottom-8 left-[37%] z-50">
       <button
+        data-testid="cart-button"
         onClick={handleCartClick}
         className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-3 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105 flex items-center space-x-2"
         role="button"
@@ -37,7 +38,10 @@ const CartButton = () => {
 
         {/* Cart Count Badge */}
         {totalItems > 0 && (
-          <span className="bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-[20px] text-center">
+          <span
+            data-testid="cart-count"
+            className="bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-[20px] text-center"
+          >
             {totalItems}
           </span>
         )}
