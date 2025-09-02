@@ -89,7 +89,7 @@ const CartModal = ({ isOpen, onClose }) => {
                     <button
                       onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
                       className="w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
-                      aria-label="Azalt"
+                      data-testid="decrease"
                     >
                       <HiMinus className="w-4 h-4 text-gray-600" />
                     </button>
@@ -97,9 +97,9 @@ const CartModal = ({ isOpen, onClose }) => {
                     <span className="w-8 text-center font-semibold text-gray-900">{item.quantity}</span>
 
                     <button
+                      data-testid="increase"
                       onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                       className="w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors"
-                      aria-label="Artır"
                     >
                       <HiPlus className="w-4 h-4 text-gray-600" />
                     </button>
@@ -112,9 +112,9 @@ const CartModal = ({ isOpen, onClose }) => {
 
                   {/* Delete Button */}
                   <button
+                    data-testid="delete"
                     onClick={() => handleDeleteItem(item.id)}
                     className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
-                    aria-label="Sil"
                   >
                     <HiTrash className="w-5 h-5" />
                   </button>
@@ -131,7 +131,7 @@ const CartModal = ({ isOpen, onClose }) => {
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-gray-600">
                 <span>Ara Toplam</span>
-                <span>₺{subtotal.toFixed(2)}</span>
+                <span data-testid="subtotal">₺{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
                 <span>Kargo</span>
@@ -139,7 +139,7 @@ const CartModal = ({ isOpen, onClose }) => {
               </div>
               <div className="flex justify-between text-xl font-bold text-gray-900 pt-3 border-t border-gray-200">
                 <span>Toplam</span>
-                <span>₺{total.toFixed(2)}</span>
+                <span data-testid="total">₺{total.toFixed(2)}</span>
               </div>
             </div>
 

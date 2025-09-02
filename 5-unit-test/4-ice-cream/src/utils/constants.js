@@ -22,7 +22,7 @@ export const mockProducts = [
 export const mockCart = {
   items: [
     {
-      id: 12314234,
+      id: 123,
       productId: 1,
       name: "Bal Badem",
       price: 25,
@@ -31,7 +31,7 @@ export const mockCart = {
       format: "cup",
     },
     {
-      id: 12314235,
+      id: 1234,
       productId: 2,
       name: "Çikolata Fırtınası",
       price: 20,
@@ -40,8 +40,8 @@ export const mockCart = {
       format: "cornet",
     },
   ],
-  totalAmount: 45,
-  totalItems: 2,
+  totalAmount: 70,
+  totalItems: 3,
 };
 
 export const mockCartEmpty = {

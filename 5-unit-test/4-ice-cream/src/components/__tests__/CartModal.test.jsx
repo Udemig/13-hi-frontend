@@ -1,12 +1,26 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import configureStore from "redux-mock-store";
 import CartModal from "../CartModal";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { mockCart, mockCartEmpty } from "../../utils/constants";
+import { clearCart, removeFromCart, updateQuantity } from "../../store/cartSlice";
+import userEvent from "@testing-library/user-event";
+
+// mock useDispatch
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: jest.fn(),
+}));
 
 const createMockStore = configureStore();
 
 describe("CartModal Component", () => {
+  const dispatchMock = jest.fn();
+
+  beforeEach(() => {
+    useDispatch.mockReturnValue(dispatchMock);
+  });
+
   test("isOpen prop'una göre component görünür veya gizli olur", () => {
     // component'ı renderla (isOpen false)
     render(
@@ -84,5 +98,86 @@ describe("CartModal Component", () => {
       // ürünün miktarı ekranda gözükür
       screen.getByText(item.quantity);
     });
+  });
+
+  test("Ürün miktarını artırıp azaltabiliriz", () => {
+    render(
+      <Provider store={createMockStore({ cart: mockCart })}>
+        <CartModal isOpen={true} onClose={() => {}} />
+      </Provider>
+    );
+
+    // butonları al
+    const increaseButton = screen.getAllByTestId("increase");
+    const decreaseButton = screen.getAllByTestId("decrease");
+
+    // miktarı 2 olan ürünün arttır butonuna tıkla
+    fireEvent.click(increaseButton[0]);
+
+    // updateQuantity aksiyonu doğru parametrelerle dispatch edilir
+    expect(dispatchMock).toHaveBeenCalledWith(
+      updateQuantity({ id: mockCart.items[0].id, quantity: mockCart.items[0].quantity + 1 })
+    );
+
+    // miktarı 2 olan ürünün azalt butonuna tıkla
+    fireEvent.click(decreaseButton[0]);
+
+    // updateQuantity aksiyonu doğru parametrelerle dispatch edilir
+    expect(dispatchMock).toHaveBeenCalledWith(
+      updateQuantity({ id: mockCart.items[0].id, quantity: mockCart.items[0].quantity - 1 })
+    );
+
+    // miktarı 1 olan ürünün azalt butonuna tıkla
+    fireEvent.click(decreaseButton[1]);
+
+    // removeFromCart aksiyonu doğru parametrelerle dispatch edilir
+    expect(dispatchMock).toHaveBeenCalledWith(removeFromCart(mockCart.items[1].id));
+
+    // sil butonunu al
+    const deleteBtn = screen.getAllByTestId("delete");
+
+    // sil butonuna tıkla
+    fireEvent.click(deleteBtn[0]);
+
+    // removeFromCart aksiyonu doğru parametrelerle dispatch edilir
+    expect(dispatchMock).toHaveBeenCalledWith(removeFromCart(mockCart.items[0].id));
+  });
+
+  test("fiyat hesaplamaları doğru şekilde yapılır", () => {
+    render(
+      <Provider store={createMockStore({ cart: mockCart })}>
+        <CartModal isOpen={true} onClose={() => {}} />
+      </Provider>
+    );
+
+    // ara toplam ve toplam alannlarını al
+    const subtotal = screen.getByTestId("subtotal");
+    const total = screen.getByTestId("total");
+
+    // ara toplam değeri doğru şekilde hesaplanır
+    expect(subtotal).toHaveTextContent(`₺${mockCart.totalAmount}`);
+
+    // toplam değeri doğru şekilde hesaplanır
+    expect(total).toHaveTextContent(`₺${mockCart.totalAmount + 20}`);
+  });
+
+  test("Sipariş ver butonuna tıklandığında sipariş verilir", async () => {
+    // userEvent kurulumunu yap
+    const user = userEvent.setup();
+
+    render(
+      <Provider store={createMockStore({ cart: mockCart })}>
+        <CartModal isOpen={true} onClose={() => {}} />
+      </Provider>
+    );
+
+    // sipariş ver butonunu al
+    const button = screen.getByRole("button", { name: "Sipariş Ver" });
+
+    // sipariş ver butonuna tıkla
+    await user.click(button);
+
+    // doğru aksiyon dispatch edilir
+    expect(dispatchMock).toHaveBeenCalledWith(clearCart());
   });
 });
