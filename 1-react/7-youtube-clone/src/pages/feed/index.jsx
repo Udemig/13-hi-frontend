@@ -32,8 +32,8 @@ const Feed = () => {
   }, [selectedCategory]);
 
   // Veriyi kategorize et
-  const shorts = data.filter((item) => item.type === "shorts_listing");
-  const videos = data.filter((item) => item.type === "video");
+  const shorts = data?.filter((item) => item.type === "shorts_listing");
+  const videos = data?.filter((item) => item.type === "video");
 
   return (
     <div className="page">

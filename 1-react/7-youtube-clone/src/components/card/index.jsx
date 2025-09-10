@@ -24,7 +24,7 @@ const Card = ({ video, isRow }) => {
       >
         {/* Thumbnail */}
         <div className="relative flex-1 max-w-[500px] rounded-lg overflow-hidden h-fit min-w-[190px]">
-          <img src={thumbnail.url} alt={video.title} className="w-full h-full" />
+          <img src={thumbnail?.url} alt={video.title} className="w-full h-full" />
 
           {video.lengthText && (
             <span className="absolute bottom-1 right-1 bg-black/80 text-xs px-2 py-0.5 rounded">
