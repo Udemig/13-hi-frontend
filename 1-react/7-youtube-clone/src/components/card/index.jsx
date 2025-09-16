@@ -76,7 +76,7 @@ const Card = ({ video, isRow }) => {
       <div className="block">
         {/* Thumbnail */}
         <div className="relative rounded-xl overflow-hidden mb-3 w-full aspect-video">
-          <img src={thumbnail.url} className="w-full h-full object-cover group-hover:scale-105 transition" />
+          <img src={thumbnail?.url} className="w-full h-full object-cover group-hover:scale-105 transition" />
 
           {video.lengthText && (
             <span className="absolute bottom-1 right-1 bg-black/80 text-xs px-2 py-0.5 rounded">
@@ -93,7 +93,7 @@ const Card = ({ video, isRow }) => {
         <div className="flex gap-3">
           {/* Kanal Foto */}
           {video.channelThumbnail?.[0]?.url && (
-            <img src={video.channelThumbnail[0].url} className="w-9 h-9 rounded-full" />
+            <img src={video.channelThumbnail[0]?.url} className="w-9 h-9 rounded-full" />
           )}
 
           {/* Yazı İçeriği */}

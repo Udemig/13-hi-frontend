@@ -14,7 +14,7 @@ const Shorts = ({ shortList }) => {
           <Link to={`/watch?v=${short.videoId}`} key={key} className="flex-shrink-0  group">
             <div className="relative w-48 h-80 overflow-hidden rounded-lg bg-zinc-900">
               <img
-                src={short.thumbnail[1].url}
+                src={short.thumbnail[1]?.url}
                 className="w-full h-full object-cover transition group-hover:scale-105"
               />
 
