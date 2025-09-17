@@ -36,6 +36,14 @@
 
 /* Modern utility classes */
 @layer utilities {
+  .input-bg {
+    @apply backdrop-blur-xl bg-white/10 h-[52px] px-4 border  border-white/20 placeholder-grey-light outline-none focus:border-primary-blue/50 focus:bg-white/10 transition duration-300;
+  }
+
+  .search-btn {
+    @apply ml-4 p-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl hover:bg-white/20 transition duration-300 hover:scale-105 cursor-pointer;
+  }
+
   .glass-effect {
     @apply backdrop-blur-xl bg-white/10 border border-white/20;
   }
