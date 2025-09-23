@@ -135,6 +135,22 @@ body {
   font-weight: 600;
 }
 
+.prose h1 {
+  font-size: 2em;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+}
+
+.prose h4 {
+  font-size: 1em;
+}
+
 .prose p,
 .prose ul,
 .prose ol {
@@ -158,6 +174,20 @@ body {
   background: #334155;
   padding: 2px 4px;
   border-radius: 4px;
+}
+
+.prose table {
+  border: 1px solid theme(--color-border);
+  width: 100%;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.prose table th,
+td {
+  padding: 8px;
+  border: 1px solid theme(--color-border);
 }
 
 /* Temel Bileşenler */
@@ -194,5 +224,69 @@ body {
 
   .form-button {
     @apply inline-flex items-center justify-center w-full md:w-auto px-5 py-2.5 rounded-md border border-border hover:bg-background transition;
+  }
+}
+
+/* SimpleMDE (Markdown Editor) Özel Stilleri */
+.markdown-editor .CodeMirror {
+  background-color: theme(--color-card) !important;
+  border: 1px solid theme(--color-border) !important;
+  border-radius: theme(--radius-md) !important;
+  color: theme(--color-text-primary) !important;
+  transition: theme(--transition-normal) !important;
+}
+
+.markdown-editor .CodeMirror:focus-within {
+  border-color: theme(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}
+
+.markdown-editor .CodeMirror-cursor {
+  border-left: 2px solid theme(--color-primary) !important;
+}
+
+.markdown-editor .CodeMirror-selected {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.markdown-editor .editor-toolbar {
+  background-color: theme(--color-card) !important;
+  border: 1px solid theme(--color-border) !important;
+  border-bottom: none !important;
+  border-radius: theme(--radius-md) theme(--radius-md) 0 0 !important;
+}
+
+.markdown-editor .editor-toolbar button {
+  background-color: transparent !important;
+  color: theme(--color-text-secondary) !important;
+  border: none !important;
+  transition: theme(--transition-normal) !important;
+}
+
+.markdown-editor .editor-toolbar button:hover {
+  background-color: theme(--color-background) !important;
+  color: theme(--color-text-primary) !important;
+}
+
+.markdown-editor .editor-toolbar button.active {
+  background-color: theme(--color-primary) !important;
+  color: white !important;
+}
+
+/* Koyu tema için SimpleMDE stilleri */
+@media (prefers-color-scheme: dark) {
+  .markdown-editor .CodeMirror {
+    background-color: theme(--color-card) !important;
+    border-color: theme(--color-border) !important;
+    color: theme(--color-text-primary) !important;
+  }
+
+  .markdown-editor .editor-toolbar {
+    background-color: theme(--color-card) !important;
+    border-color: theme(--color-border) !important;
+  }
+
+  .markdown-editor .editor-toolbar button:hover {
+    background-color: theme(--color-background) !important;
   }
 }

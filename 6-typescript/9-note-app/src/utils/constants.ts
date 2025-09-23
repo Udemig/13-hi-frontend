@@ -33,19 +33,28 @@ export const selectStyles = {
 
   input: (styles: object) => ({
     ...styles,
-    color: "var(color-text-primary)",
+    color: "var(--color-text-primary)",
   }),
 
   multiValue: (styles: object) => ({
     ...styles,
     backgroundColor: "var(--color-primary)",
-    color: "var(color-text-primary)",
+    color: "var(--color-text-primary)",
     borderRadius: "10px",
   }),
 
   multiValueLabel: (styles: object) => ({
     ...styles,
-    color: "var(color-text-primary)",
+    color: "var(--color-text-primary)",
     fontSize: "16px",
+  }),
+
+  option: (styles: object) => ({
+    ...styles,
+    color: "var(--color-text-primary)",
+    backgroundColor: "var(--color-background)",
+    "&:hover": {
+      backgroundColor: "var(--color-primary)",
+    },
   }),
 };

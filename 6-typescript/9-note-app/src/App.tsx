@@ -2,11 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Detail from "./pages/detail";
 import Form from "./pages/form";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 import PageLoader from "./components/loader/page-loader";
 import Layout from "./components/layout";
 
-const App = () => {
+const App: FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/note/:id" element={<Detail />} />
           <Route path="/create" element={<Form />} />
           <Route path="/edit/:id" element={<Form />} />
         </Routes>

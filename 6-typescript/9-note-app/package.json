@@ -21,7 +21,9 @@
     "react-router-dom": "^7.9.1",
     "react-select": "^5.10.2",
     "react-simplemde-editor": "^5.2.0",
+    "react-toastify": "^11.0.5",
     "redux-persist": "^6.0.0",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4.1.13",
     "uuid": "^13.0.0"
   },
