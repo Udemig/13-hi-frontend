@@ -11,6 +11,17 @@ interface Place {
   image_url: string;
 }
 
+interface PlaceFormData {
+  name: string;
+  location: string;
+  address: string;
+  description: string;
+  amenities: string;
+  rating: number;
+  price_per_night: number;
+  availability: boolean;
+}
+
 interface PlacesResponse {
   message: string;
   results: number;
@@ -28,4 +39,10 @@ interface FilterParams {
   order?: string;
 }
 
-export type { Place, PlacesResponse, FilterParams, PlaceResponse };
+export type {
+  Place,
+  PlacesResponse,
+  FilterParams,
+  PlaceResponse,
+  PlaceFormData,
+};

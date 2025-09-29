@@ -34,9 +34,9 @@ const Detail: FC = () => {
     <Container>
       <Images image={data.image_url} />
 
-      <Info />
+      <Info place={data} />
 
-      <DeleteButton />
+      <DeleteButton id={id!} />
     </Container>
   );
 };

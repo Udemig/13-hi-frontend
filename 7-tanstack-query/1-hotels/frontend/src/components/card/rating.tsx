@@ -28,9 +28,13 @@ const Rating: FC<Props> = ({ rating, expand }) => {
 
   return (
     <div>
-      <span className={`text-white p-2 rounded-lg font-bold w-fit ${color}`}>{rating}</span>
+      <span className={`text-white p-2 rounded-lg font-bold w-fit ${color}`}>
+        {rating}
+      </span>
 
-      {expand && <span className="font-semibold text-lg ms-2">{text}</span>}
+      {expand && (
+        <span className="font-semibold text-lg ms-2 text-nowrap">{text}</span>
+      )}
     </div>
   );
 };

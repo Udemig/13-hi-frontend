@@ -1,6 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import api from "./api";
-import type { FilterParams, PlaceResponse, PlacesResponse } from "../types";
+import type {
+  FilterParams,
+  PlaceFormData,
+  PlaceResponse,
+  PlacesResponse,
+} from "../types";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 /*
  ! useQuery
@@ -35,3 +42,38 @@ export const usePlace = (id: string | undefined) =>
     queryFn: () => api.get<PlaceResponse>(`/api/place/${id}`),
     select: (res) => res.data.place,
   });
+
+// konaklama noktasını sil
+export const useDeletePlace = (id: string) => {
+  const navigate = useNavigate();
+
+  return useMutation({
+    // atılacak istek:
+    mutationFn: () => api.delete(`/api/place/${id}`),
+    // istek başarılı olursa:
+    onSuccess: (res) => {
+      toast.success("Başarıyla silindi");
+      navigate("/");
+    },
+    // istek başarısız olursa:
+    onError: (err) => {
+      toast.error("Bir hata oluştu");
+    },
+  });
+};
+
+// yeni konaklama noktası oluştur
+export const useCreatePlace = () => {
+  const navigate = useNavigate();
+
+  return useMutation({
+    mutationFn: (data: PlaceFormData) => api.post("/api/places", data),
+    onSuccess: (res) => {
+      toast.success("Başarıyla oluşturuldu");
+      navigate(`/place/${res.data.place.id}`);
+    },
+    onError: (err) => {
+      toast.error("Bir hata oluştu");
+    },
+  });
+};
