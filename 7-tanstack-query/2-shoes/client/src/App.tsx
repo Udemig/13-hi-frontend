@@ -3,9 +3,53 @@ import Home from "./pages/home";
 import Detail from "./pages/detail";
 import Register from "./pages/register";
 import Login from "./pages/login";
+import Layout from "./components/layout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Protected from "./components/protected";
+import Dashboard from "./pages/dashboard";
+
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Protected>
+            <Home />
+          </Protected>
+        ),
+      },
+      {
+        path: "/shoe/:id",
+        element: (
+          <Protected>
+            <Detail />
+          </Protected>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Dashboard />
+          </Protected>
+        ),
+      },
+    ],
+  },
+]);
 
 const App: FC = () => {
-  return <div>App</div>;
+  return <RouterProvider router={router} />;
 };
 
 export default App;

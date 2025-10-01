@@ -452,14 +452,6 @@
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ttdQRLrjvoQteH2-Wlzj4f87DUmTVuEJmQ&s",
       "restaurantId": "1",
       "amount": 7
-    },
-    {
-      "id": "310",
-      "title": "Köri Tavuk",
-      "price": 16.99,
-      "photo": "https://i.nefisyemektarifleri.com/2023/03/13/cok-lezzetli-korili-kremali-tavuk-tarifi-baska-tarif-aramayin-videolu-6.jpg",
-      "restaurantId": "1",
-      "amount": 2
     }
   ]
 }
