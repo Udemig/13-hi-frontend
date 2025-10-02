@@ -7,6 +7,9 @@ import Layout from "./components/layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Protected from "./components/protected";
 import Dashboard from "./pages/dashboard";
+import FormPage from "./pages/create";
+import Create from "./pages/create";
+import { Edit } from "lucide-react";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +44,22 @@ const router = createBrowserRouter([
         element: (
           <Protected allowedRoles={["admin"]}>
             <Dashboard />
+          </Protected>
+        ),
+      },
+      {
+        path: "/dashboard/create",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Create />
+          </Protected>
+        ),
+      },
+      {
+        path: "/dashboard/edit/:id",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Edit />
           </Protected>
         ),
       },

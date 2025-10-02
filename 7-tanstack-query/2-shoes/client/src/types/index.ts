@@ -34,3 +34,31 @@ export type TokenResponse = {
 export type MessageResponse = {
   message: string;
 };
+
+// Shoes Types
+export type ShoeValues = {
+  name: string;
+  discount: number;
+  description: string;
+  isNew: boolean;
+  size: string;
+  color: string;
+  gender: "men" | "women";
+  price: number;
+};
+
+export type Shoe = {
+  _id: string;
+  name: string;
+  picture: string[];
+  description: string;
+  isNew: boolean;
+  discount: number;
+  size: string;
+  color: string;
+  gender: "men" | "women";
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+  __v: 0;
+};

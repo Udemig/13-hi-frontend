@@ -11,9 +11,9 @@ interface Props {
 const Input: FC<Props> = ({ label, name, type, required }) => {
   return (
     <div className="relative">
-      <label htmlFor={name}>
+      <label htmlFor={name} className="text-sm/6 font-semibold text-gray-900">
         {label}
-        {required && <span className="text-red-500">*</span>}
+        {required && <span className="text-red-500 ms-1">*</span>}
       </label>
 
       <div>
