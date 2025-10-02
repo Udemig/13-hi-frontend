@@ -12,11 +12,11 @@ import Foot from "./foot";
 const Detail: FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { isLoading, error, data } = useShoe(id);
+  const { isLoading, error, data, refetch } = useShoe(id);
 
   if (isLoading) return <Loader />;
 
-  if (error) return <Error message={error.message} />;
+  if (error) return <Error message={error.message} refetch={refetch} />;
 
   if (!data) return null;
 

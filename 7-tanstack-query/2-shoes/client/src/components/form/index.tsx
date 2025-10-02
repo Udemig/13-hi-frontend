@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import type { ShoeValues } from "../../types";
 import { useNavigate } from "react-router-dom";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import { INPUT_ARRAY } from "../../utils/constants";
 import Input from "./input";
 
@@ -40,6 +40,17 @@ const FormContainer: FC<Props> = ({
         {INPUT_ARRAY.map((input) => (
           <Input key={input.name} {...input} />
         ))}
+
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2">
+            <Field type="radio" name="gender" value="men" id="men" />
+            <label htmlFor="men">Erkek</label>
+          </div>
+          <div className="flex items-center gap-2">
+            <Field type="radio" name="gender" value="women" id="women" />
+            <label htmlFor="women">Kadın</label>
+          </div>
+        </div>
 
         <button
           disabled={isPending}

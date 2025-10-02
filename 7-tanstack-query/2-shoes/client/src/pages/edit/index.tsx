@@ -12,7 +12,7 @@ const Edit: FC = () => {
   const { id } = useParams<{ id: string }>();
 
   // güncellenicek elemanın detayını alıyoruz
-  const { data, isLoading, error } = useShoe(id);
+  const { data, isLoading, error, refetch } = useShoe(id);
 
   //güncelleme işlemi için useUpdateShoe hook'unu kullanıyoruz
   const { mutate, isPending } = useUpdateShoe();
@@ -24,7 +24,7 @@ const Edit: FC = () => {
 
   if (isLoading) return <Loader />;
 
-  if (error) return <Error message={error.message} />;
+  if (error) return <Error message={error.message} refetch={refetch} />;
 
   return (
     <Container title="Ürünü Düzenle">

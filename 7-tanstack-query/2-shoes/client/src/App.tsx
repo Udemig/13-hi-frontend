@@ -7,9 +7,8 @@ import Layout from "./components/layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Protected from "./components/protected";
 import Dashboard from "./pages/dashboard";
-import FormPage from "./pages/create";
 import Create from "./pages/create";
-import { Edit } from "lucide-react";
+import Edit from "./pages/edit";
 
 const router = createBrowserRouter([
   {
