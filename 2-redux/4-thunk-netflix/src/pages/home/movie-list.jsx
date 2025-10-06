@@ -20,7 +20,9 @@ const MovieList = ({ genre }) => {
 
   return (
     <div className="my-10">
-      <h1 className="text-3xl font-semibold mb-3">{genre.name}</h1>
+      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+        {genre.name}
+      </h1>
 
       <Splide
         options={{
@@ -31,12 +33,12 @@ const MovieList = ({ genre }) => {
         }}
       >
         {movies?.map((item) => (
-          <SplideSlide>
+          <SplideSlide key={item.id}>
             <Link to={`/movie/${item.id}`}>
               <img
                 src={BASE_IMG_URL + item.poster_path}
-                alt="Image 1"
-                className="max-w-[300px] cursor-pointer rounded transition hover:scale-[1.01]"
+                alt={item.title}
+                className="max-w-[300px] cursor-pointer rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 border border-transparent hover:border-white/20"
               />
             </Link>
           </SplideSlide>

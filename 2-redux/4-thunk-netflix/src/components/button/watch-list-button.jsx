@@ -18,7 +18,10 @@ const WatchListButton = ({ movie }) => {
   };
 
   return (
-    <button onClick={handleClick} className="hero-btn bg-blue-600 cursor-pointer">
+    <button
+      onClick={handleClick}
+      className="py-3 px-6 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-600/50 min-w-[165px] flex items-center justify-center gap-2 font-medium cursor-pointer"
+    >
       {!isAdded ? (
         <>
           <Plus className="size-5" />

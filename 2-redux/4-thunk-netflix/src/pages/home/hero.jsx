@@ -37,20 +37,26 @@ const Hero = () => {
   if (error) return <Error info={error} />;
 
   return (
-    <div className="grid md:grid-cols-2 md:max-h-[400px] gap-5 mb-10">
+    <div className="grid md:grid-cols-2 md:max-h-[400px] gap-8 mb-10 backdrop-blur-md bg-gradient-to-r from-black/40 to-transparent p-8 rounded-3xl border border-white/10 shadow-2xl">
       <div className="flex flex-col gap-6 items-center justify-center">
-        <h1 className="text-3xl font-bold text-center">{movie.title}</h1>
+        <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          {movie.title}
+        </h1>
 
-        <p className="text-start text-gray-300 line-clamp-5">{movie.overview}</p>
-
-        <p>
-          <span>IMDB</span>
-          <span className="text-yellow-400 ms-2 font-semibold">{movie.vote_average.toFixed(2)}</span>
+        <p className="text-start text-gray-300 line-clamp-5 leading-relaxed">
+          {movie.overview}
         </p>
+
+        <div className="flex items-center gap-2 bg-yellow-400/20 px-4 py-2 rounded-full border border-yellow-400/30">
+          <span className="font-medium">IMDB</span>
+          <span className="text-yellow-400 font-bold text-lg">
+            {movie.vote_average.toFixed(2)}
+          </span>
+        </div>
 
         <div className="flex gap-5">
           <Link to={`/movie/${movie.id}`} className="hero-btn">
-            <Play className="size-4" />
+            <Play className="size-5" />
             Filmi İzle
           </Link>
 
@@ -58,11 +64,11 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center">
         <img
           src={BASE_IMG_URL + movie.backdrop_path}
           alt={movie.title}
-          className="drop-shadow-[0_0_80px_rgba(255,255,255,0.4)] my-4 rounded object-contain max-h-[300px]"
+          className="drop-shadow-[0_0_80px_rgba(255,255,255,0.4)] rounded-2xl object-contain max-h-[300px] transition-transform duration-500 hover:scale-105"
         />
       </div>
     </div>

@@ -16,7 +16,9 @@ const WatchList = () => {
 
   return (
     <div>
-      <h1 className="text-2xl md:text-3xl font-semibold">İzleme Listesi</h1>
+      <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-8">
+        İzleme Listesi
+      </h1>
 
       {isLoading ? (
         <Loader />
@@ -25,10 +27,10 @@ const WatchList = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-10 gap-x-5 my-10">
           {list?.map((movie) => (
-            <div className="relative group">
+            <div key={movie.id} className="relative group">
               <button
                 onClick={() => handleDelete(movie)}
-                className="hidden group-hover:block absolute top-3 end-3 bg-red-500 p-2 rounded hover:bg-red-600 transition z-10 shadow cursor-pointer"
+                className="hidden group-hover:flex absolute top-3 end-3 bg-gradient-to-r from-red-500 to-red-600 p-2 rounded-lg hover:scale-110 transition-all duration-300 z-10 shadow-lg shadow-red-500/50 items-center justify-center cursor-pointer"
               >
                 <BookmarkMinus className="size-4" />
               </button>
@@ -37,11 +39,11 @@ const WatchList = () => {
                 <img
                   src={BASE_IMG_URL + movie.poster_path}
                   alt={movie.title}
-                  className="rounded shadow group-hover:scale-[101%] object-cover transition"
+                  className="rounded-xl shadow-lg group-hover:scale-105 object-cover transition-all duration-300 border border-transparent group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-white/20"
                 />
               </Link>
 
-              <h1 className="text-xl text-center font-semibold mt-3 group-hover:text-shadow-lg text-shadow-white/20 transition">
+              <h1 className="text-lg text-center font-semibold mt-3 group-hover:text-white transition-colors duration-300">
                 {movie.title}
               </h1>
             </div>
