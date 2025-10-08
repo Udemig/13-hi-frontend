@@ -13,7 +13,10 @@ const Header = () => {
         <NavLink className={(e) => (e.isActive ? styles.active : "")} to="/">
           Başvurular
         </NavLink>
-        <NavLink className={(e) => (e.isActive ? styles.active : "")} to="/create">
+        <NavLink
+          className={(e) => (e.isActive ? styles.active : "")}
+          to="/create"
+        >
           Yeni Başvuru
         </NavLink>
       </nav>

@@ -32,7 +32,9 @@ const TaskModal = ({ task, show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>{task ? "Görevi Düzenle" : "Yeni Görev Oluştur"}</Modal.Title>
+        <Modal.Title>
+          {task ? "Görevi Düzenle" : "Yeni Görev Oluştur"}
+        </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -40,7 +42,11 @@ const TaskModal = ({ task, show, handleClose }) => {
           {inputs.map((input, key) => (
             <Form.Group key={key} className="mb-3" controlId={input.name}>
               <Form.Label>{input.label}</Form.Label>
-              <Form.Control name={input.name} type={input.type} defaultValue={task?.[input.name]} />
+              <Form.Control
+                name={input.name}
+                type={input.type}
+                defaultValue={task?.[input.name]}
+              />
             </Form.Group>
           ))}
 

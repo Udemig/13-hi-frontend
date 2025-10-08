@@ -13,7 +13,7 @@ const Template = ({ children }) => {
   }
 
   return (
-    <div className="flex items-center gap-20 px-20">
+    <div className="flex items-center gap-10 px-5">
       <aside className="flex flex-col gap-5 border p-5 rounded-md">
         <h1>Selam, {name}</h1>
 

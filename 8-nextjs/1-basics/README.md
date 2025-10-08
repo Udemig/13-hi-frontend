@@ -88,3 +88,10 @@
 - - bir bileşen await ile promise'i bekledği süre boyunca otomatik olarak ekrana gelir
 - - loading dosyasını oluşturduğumuz klasöre göre etki ettiği sayfalar değişir
 - - oluşturduğumuz klasörde layou component'ı varsa children nerede render edilirse loader oraya gelir
+
+- `error.jsx`
+- - bir bielşen içerisinden throw ile hata fırlatığında otomatik olarak gelir
+- - örneğin bir apii i steği başarısız olduğunda veya throw new Eror() ile hata fırlatılırsa devreye girer.
+- - loading'de olduğu gibi oluşturulduğu klasöre bağlı olaraka sayfalara etki eder
+- - `use client` kullanmak zorunlu
+- - `hata mesajını` ve `api isteğini tekrar atıcak fonksiyonu` prop olarak alır

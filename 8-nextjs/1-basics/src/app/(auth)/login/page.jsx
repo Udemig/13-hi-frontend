@@ -6,7 +6,8 @@ export const metadata = {
 };
 
 const Page = async () => {
-  await delay(2500);
+  await delay(2000);
+  throw new Error("İnternet bağlantısı yok");
 
   return (
     <div>

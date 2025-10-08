@@ -1,7 +1,7 @@
 {
   "jobs": [
     {
-      "position": "Data Analyst",
+      "position": "Data Analyst 5",
       "company": "Coca Cola",
       "location": "Menlo Park",
       "status": "Devam Ediyor",
@@ -79,9 +79,10 @@
       "position": "Frontend Developer",
       "company": "Udemig",
       "location": "New York",
-      "status": "Mülakat",
+      "status": "Devam Ediyor",
       "type": "Tam Zamanlı",
-      "interview_date": "2025-08-07"
+      "interview_date": "2025-08-07",
+      "date": "2025-10-07"
     },
     {
       "id": "31bf",
