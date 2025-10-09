@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { data } from "@/utils/constants";
-import x from "@pages/1";
 
 const Modal = async ({ params }) => {
   const router = useRouter();

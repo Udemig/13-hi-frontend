@@ -10,7 +10,7 @@ const Page = async ({ params }) => {
   const item = data.find((item) => item.id === id);
 
   return (
-    <div className="-mt-60 mx-auto text-3xl">
+    <div className="mx-auto text-3xl">
       <div className="w-3/4 lg:w-1/2 mx-auto">
         <Link href="/wonders" className="text-xl underline">
           Geri

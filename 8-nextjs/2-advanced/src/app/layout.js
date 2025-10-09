@@ -1,11 +1,22 @@
 import "./globals.css";
-// font importu
-import { Bitcount_Prop_Single } from "next/font/google";
 
-// font kurulumu
+// local font importu
+import LocalFont from "next/font/local";
+
+// remote font importu
+import { Bitcount_Prop_Single } from "next/font/google";
+import Header from "@/components/header";
+
+// remote font kurulumu
 const bitcount = Bitcount_Prop_Single({
   subsets: ["latin"],
-  variable: "--font-bit",
+  variable: "--font-bitcount",
+});
+
+// local font kurulumu
+const moghul = LocalFont({
+  src: "../assets/Moghul.ttf",
+  variable: "--font-moghul",
 });
 
 export const metadata = {
@@ -16,8 +27,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={bitcount.style} className={`antialiased`}>
-        <main className="text-3xl p-10 text-center my-60">{children}</main>
+      <body
+        className={`antialiased flex flex-col ${bitcount.variable} ${moghul.variable}`}
+      >
+        {/* <Header /> */}
+        <main className="flex-1 text-3xl p-10 text-center my-5">
+          {children}
+        </main>
       </body>
     </html>
   );
