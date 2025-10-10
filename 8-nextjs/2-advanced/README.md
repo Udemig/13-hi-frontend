@@ -151,3 +151,20 @@
 
 - Kullanıcı sayfaya girdiği anda hazırlanıp kullanıcıya sunulan sayfalardır
 - Genelde url'de parametresi olan ve sayfa içeriğini url'deki parametreye göre değiştiği sayfalardır
+
+## Static Bir Sayfayı Dinamik Hale Getirme (revalidate | dynamic)
+
+- Next.js varsayılan olarak parametreye sahip olmayan bütün sayfaları statik yapar.
+- Amaz bazen biz bu saydfa içeriklerinin belirli aralıklara güncelleneceğinden tamamen statik olmasını istemeyebiliriz.
+- Bu durumda revalidate veya dynamic özellikleri kullanılır
+
+## Dinamik Sayfları Statik Hale Çevirme (generateStaticParams)
+
+- Fonksiyon dinamik olan sayfaları statik hale çevirir
+- Build sırasında çağrılan dinamik route'lar için bir parametre listesi döndürür
+- Next.js'de bu listedeki herbir parametre için o detay sayfasının statik bir versiyonunu oluşturur
+
+# Fullstack Framework
+
+- Next.js ile hem frontend hemden backend kodlarını tek bir proje içerisinde yazabiliyoruz.
+- Backend route'u oluşturmak için api istminde bir klasör oluştururuz

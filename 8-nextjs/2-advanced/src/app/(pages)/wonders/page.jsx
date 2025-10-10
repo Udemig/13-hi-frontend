@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { data } from "../../utils/constants";
+import { data } from "../../../utils/constants";
 import Image from "next/image";
 
 const Wonders = () => {
