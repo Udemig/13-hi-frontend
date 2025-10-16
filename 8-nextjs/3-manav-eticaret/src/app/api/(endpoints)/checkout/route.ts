@@ -56,7 +56,7 @@ async function handleSingleItemCheckout(data: any) {
   await connectMongo();
 
   // Ürünü veritabanından kontrol et
-  const groceryItem = await Grocery.findById(grocery._id);
+  const groceryItem = await Grocery.findById(grocery);
 
   if (!groceryItem) {
     return NextResponse.json({ message: "Ürün bulunamadı" }, { status: 404 });
@@ -79,20 +79,20 @@ async function handleSingleItemCheckout(data: any) {
 
   // Satın alınacak ürün katalogda var mı kontrol et
   let foundProduct = stripeProducts.find(
-    (product: any) => product.metadata.product_id === grocery._id
+    (product: any) => product.metadata.product_id === String(grocery)
   );
 
   // Eğer katalogda yoksa ürünü kataloga ekle
   if (!foundProduct) {
     foundProduct = await stripe.products.create({
-      name: grocery.name,
-      description: grocery.description,
+      name: groceryItem.name,
+      description: groceryItem.description,
       default_price_data: {
-        unit_amount: grocery.price * 100,
+        unit_amount: groceryItem.price * 100,
         currency: "try",
       },
       metadata: {
-        product_id: grocery._id,
+        product_id: String(grocery),
       },
     });
   }
@@ -113,9 +113,9 @@ async function handleSingleItemCheckout(data: any) {
 
   // Sipariş oluştur
   const orderItem = {
-    product: grocery._id,
+    product: grocery,
     quantity: quantity,
-    money_spend: grocery.price * quantity,
+    money_spend: groceryItem.price * quantity,
     currency: "TRY",
     customer_id: customerInfo.userId,
     customer_name: customerInfo.name,
@@ -127,7 +127,7 @@ async function handleSingleItemCheckout(data: any) {
   await Order.create(orderItem);
 
   // Stok güncelle
-  await Grocery.findByIdAndUpdate(grocery._id, {
+  await Grocery.findByIdAndUpdate(grocery, {
     $inc: { stock: -quantity },
   });
 

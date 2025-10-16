@@ -32,7 +32,26 @@ export interface Basket {
   __v: 0;
 }
 
+// Sipariş Tipi
+export interface Order {
+  _id: string;
+  product: Product;
+  quantity: number;
+  money_spend: number;
+  currency: string;
+  customer_id: string;
+  customer_name: string;
+  customer_phone: string;
+  delivery_address: string;
+  is_delivery: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: 0;
+}
+
 // API Response Tipleri
 export type ProductsRes = Promise<{ groceries: Product[] }>;
 export type ProductRes = Promise<{ grocery: Product }>;
 export type BasketRes = Promise<{ cart: Basket }>;
+export type UrlRes = Promise<{ url: string }>;
+export type OrdersRes = Promise<{ orders: Order[] }>;
