@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "2",
-      "name": "Samsung Galaxy S28+",
+      "name": "Samsung Galaxy S25+",
       "brand": "Samsung",
       "price": 4999.98,
       "stock": 30,
@@ -109,16 +109,16 @@
       "reviews_count": 40
     },
     {
-      "id": "0998",
-      "name": "Samsung Galaxy S25",
-      "brand": "Samsung",
-      "price": 56000,
-      "stock": 65,
-      "rating": 4,
-      "reviews_count": 56,
-      "category": "Electronics",
-      "image_url": "https://cdn.vatanbilgisayar.com/Upload/PRODUCT/samsung/thumb/1-171_large.jpg",
-      "description": "bu telefon oldukça...."
+      "id": "0fdb",
+      "name": "Rolex Sybmariner",
+      "brand": "Rolex",
+      "price": 9877007,
+      "stock": 2,
+      "rating": 5,
+      "reviews_count": 3,
+      "category": "Clothing",
+      "image_url": "https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_1920/v1/catalogue/2025/upright-c/m126613ln-0002.jpg",
+      "description": "Rolex Submariner'ın ikinci el fiyatları 6.500 Euro'nun biraz altından başlayarak 100.000 Euro'nun üstüne kadar çıkmaktadır. Modellerin fiyatları, model.."
     }
   ],
   "users": [

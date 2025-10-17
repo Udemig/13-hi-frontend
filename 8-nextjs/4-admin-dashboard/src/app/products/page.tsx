@@ -1,8 +1,12 @@
+import Card from "@/components/products/card";
+import { getProducts } from "@/utils/service";
 import Link from "next/link";
 import { FC } from "react";
 import { BiPlus } from "react-icons/bi";
 
-const Products: FC = () => {
+const Products: FC = async () => {
+  const products = await getProducts();
+
   return (
     <div className="page">
       <div className="max-w-7xl mx-auto">
@@ -20,6 +24,13 @@ const Products: FC = () => {
             <BiPlus className="text-2xl" />
             Yeni Ürün Ekle
           </Link>
+        </div>
+
+        {/* Ürün Listesi */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <Card key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </div>
