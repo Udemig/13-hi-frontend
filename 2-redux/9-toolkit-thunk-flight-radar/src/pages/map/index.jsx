@@ -1,4 +1,10 @@
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  Polyline,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useDispatch, useSelector } from "react-redux";
 import getIcon from "../../utils/getIcon";
@@ -12,40 +18,56 @@ const Map = () => {
   const { isLoading, info, route } = useSelector((store) => store.detail);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // her 5 saniyede bir api'dan güncel veriyi alır
-    const id = setInterval(() => dispatch(getFlights()), 5000);
+  // useEffect(() => {
+  //   // her 5 saniyede bir api'dan güncel veriyi alır
+  //   const id = setInterval(() => dispatch(getFlights()), 5000);
 
-    // kullanıcı sayfadan ayrığında sayacı durdurur
-    return () => clearInterval(id);
-  }, []);
+  //   // kullanıcı sayfadan ayrığında sayacı durdurur
+  //   return () => clearInterval(id);
+  // }, []);
 
   return (
-    <MapContainer center={[38.960621, 35.452065]} zoom={6} scrollWheelZoom={true}>
+    <MapContainer
+      center={[38.960621, 35.452065]}
+      zoom={6}
+      scrollWheelZoom={true}
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       {/* Uçağın rotasını çiz */}
-      {!isLoading && <Polyline positions={route} pathOptions={{ color: "red" }} />}
+      {!isLoading && (
+        <Polyline positions={route} pathOptions={{ color: "red" }} />
+      )}
 
       {/* Kalkış noktasını işaretle */}
-      {!isLoading && info && <AirportMarker info={info?.airport?.origin} title="Kalkış" />}
+      {!isLoading && info && (
+        <AirportMarker info={info?.airport?.origin} title="Kalkış" />
+      )}
 
       {/* İniş noktasını işaretle */}
-      {!isLoading && info && <AirportMarker info={info?.airport?.destination} title="İniş" />}
+      {!isLoading && info && (
+        <AirportMarker info={info?.airport?.destination} title="İniş" />
+      )}
 
       {flights.map((flight) => (
         <Marker
           key={flight.flightId}
-          icon={getIcon(flight.direction, flight.flightId === info?.identification?.id, info?.identification?.id)}
+          icon={getIcon(
+            flight.direction,
+            flight.flightId === info?.identification?.id,
+            info?.identification?.id
+          )}
           position={[flight.lat, flight.lon]}
         >
           <Popup>
             <div className="popup">
               <span>Kod: {flight.callsign}</span>
-              <button onClick={() => dispatch(open(flight.flightId))}>Detay</button>
+              <button onClick={() => dispatch(open(flight.flightId))}>
+                Detay
+              </button>
             </div>
           </Popup>
         </Marker>

@@ -66,6 +66,13 @@ const getUsers = async (): Promise<User[]> => {
   return res.json();
 };
 
+// bir kullanıcıyı getir
+const getUser = async (id: string): Promise<User> => {
+  const res = await fetch(`${API_URL}/users/${id}`);
+
+  return res.json();
+};
+
 // bir kullanıcıyı banla
 const banUser = async (id: string): Promise<void> => {
   const res = await fetch(`${API_URL}/users/${id}`, {
@@ -84,5 +91,6 @@ export {
   createProduct,
   updateProduct,
   getUsers,
+  getUser,
   banUser,
 };

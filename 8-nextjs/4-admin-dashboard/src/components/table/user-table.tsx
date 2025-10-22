@@ -3,6 +3,7 @@ import { BsEye } from "react-icons/bs";
 import { getUsers } from "@/utils/service";
 import TableWrapper from "./table-wrapper";
 import BanButton from "../buttons/ban-button";
+import Link from "next/link";
 
 const UserTable: FC = async () => {
   const users = await getUsers();
@@ -31,9 +32,12 @@ const UserTable: FC = async () => {
             <td>{user.address.city}</td>
             <td>{user.orders.length}</td>
             <td className="flex gap-3">
-              <button className="button hover:bg-gray-200 cursor-pointer">
+              <Link
+                href={`?userId=${user.id}`}
+                className="button hover:bg-gray-200 cursor-pointer"
+              >
                 <BsEye className="text-base" />
-              </button>
+              </Link>
 
               <BanButton id={user.id} />
             </td>

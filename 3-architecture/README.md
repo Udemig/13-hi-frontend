@@ -13,7 +13,7 @@
 
 - Bileşenlerin birbirleriyle olan etkileşimlerini temsil eder.
 - Frontend: state yönetim araçları: Redux, Context, Zustand
-- Backend: state yönetim araçları: JWT, Session, Cookie
+- Backend: kimlik doğrulama/oturum yönetimi: JWT, Session, Cookie
 - Backend: iletişim araçları: RabbitMQ, Kafka
 
 ### 3) Kalite Nitelekleri
