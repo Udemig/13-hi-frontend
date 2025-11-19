@@ -21,11 +21,11 @@ const Statistics = () => {
 
   return (
     <div className="container py-0">
-      <div className="bg-white shadow-lg rounded-xl p-5 grid grid-cols-3 gap-5 mt-[-34px] md:mt-[-48px]">
+      <div className="bg-white/95 backdrop-blur-md shadow-modern-lg rounded-2xl p-6 md:p-8 grid grid-cols-3 gap-5 mt-[-34px] md:mt-[-48px] border border-white/20 animate-slide-up">
         {isLoading ? (
           <Loader />
         ) : isError ? (
-          <p className="col-span-3 text-center text-red-400">Üzgünüz bir hata oluştu</p>
+          <p className="col-span-3 text-center text-red-400 font-medium">Üzgünüz bir hata oluştu</p>
         ) : (
           data && (
             <>

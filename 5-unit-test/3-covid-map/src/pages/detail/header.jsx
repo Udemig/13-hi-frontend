@@ -11,9 +11,9 @@ const Header = () => {
     <div className="flex justify-between items-center">
       <Link
         to="/"
-        className="bg-zinc-400 p-2 pe-3 rounded-md hover:bg-zinc-500 flex gap-2 items-center shadow text-white transition"
+        className="bg-gradient-to-r from-gray-600 to-gray-700 p-3 pe-4 rounded-xl hover:from-gray-700 hover:to-gray-800 flex gap-2 items-center shadow-md hover:shadow-lg text-white transition-all duration-300 font-medium group"
       >
-        <MdKeyboardArrowLeft />
+        <MdKeyboardArrowLeft className="group-hover:-translate-x-1 transition-transform duration-300" />
         Geri
       </Link>
 
@@ -21,10 +21,10 @@ const Header = () => {
         <HeaderLoader />
       ) : (
         data && (
-          <div className="flex items-center gap-4">
-            <h1 className="text-gray-900 text-2xl lg:text-3xl font-bold font-sans">{data.country}</h1>
+          <div className="flex items-center gap-4 animate-slide-up">
+            <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-900 to-purple-900 bg-clip-text text-transparent">{data.country}</h1>
 
-            <img src={data.flag.png} alt={data.flag.alt} className="w-16 rounded" />
+            <img src={data.flag.png} alt={data.flag.alt} className="w-16 h-12 object-cover rounded-lg shadow-md border-2 border-white" />
           </div>
         )
       )}

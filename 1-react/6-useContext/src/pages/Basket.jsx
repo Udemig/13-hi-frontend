@@ -22,7 +22,9 @@ const Basket = () => {
             </Link>
           </p>
         ) : (
-          basket.map((product) => <BasketItem key={product.id} product={product} />)
+          basket.map((product) => (
+            <BasketItem key={product.id} product={product} />
+          ))
         )}
       </div>
 
